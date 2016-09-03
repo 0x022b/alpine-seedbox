@@ -1,0 +1,14 @@
+#!/usr/bin/execlineb -P
+s6-sleep 5
+s6-setuidgid transmission
+redirfd -a 2 /var/log/transmission/stderr.log
+/usr/bin/transmission-daemon
+	--foreground
+	--allowed *.*.*.*
+	--port 9091
+	--peerport 51413
+	--logfile /var/log/transmission/stdout.log
+	--config-dir /mnt/transmission
+	--incomplete-dir /mnt/torrent/.tmp
+	--download-dir /mnt/torrent/download
+	--watch-dir /mnt/torrent/watch

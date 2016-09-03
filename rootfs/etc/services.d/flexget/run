@@ -1,0 +1,8 @@
+#!/usr/bin/execlineb -P
+s6-setuidgid flexget
+redirfd -a 1 /dev/null
+redirfd -a 2 /var/log/flexget/stderr.log
+/usr/bin/flexget
+	-c /mnt/flexget/config.yml
+	--logfile /var/log/flexget/stdout.log
+	daemon start
