@@ -1,4 +1,4 @@
-# alpine-seedbox
+# [alpine-seedbox][seedbox]
 
 A minimal [Alpine Linux][alpine] based [Docker][docker] container, that includes
 [Transmission][transmission], [OpenVPN][openvpn] and [FlexGet][flexget], which
@@ -109,6 +109,7 @@ $ docker run -it --rm --cap-add=NET_ADMIN --device=/dev/net/tun \
 	alpine-seedbox:latest
 ```
 
+[seedbox]: https://github.com/scoobadog/alpine-seedbox
 [alpine]: https://alpinelinux.org/
 [docker]: https://www.docker.com/
 [flexget]: http://flexget.com/
