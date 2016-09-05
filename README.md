@@ -109,6 +109,10 @@ $ docker run -it --rm --cap-add=NET_ADMIN --device=/dev/net/tun \
 	alpine-seedbox:latest
 ```
 
+## License
+
+alpine-seedbox is licensed under the MIT License.
+
 [seedbox]: https://github.com/scoobadog/alpine-seedbox
 [alpine]: https://alpinelinux.org/
 [docker]: https://www.docker.com/
