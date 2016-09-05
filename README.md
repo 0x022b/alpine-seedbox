@@ -86,7 +86,7 @@ compile and install the policy module run the following commands.
 ```shell
 $ checkmodule -M -m alpine-seedbox.te -o /tmp/alpine-seedbox.mod
 $ semodule_package -m /tmp/alpine-seedbox.mod -o /tmp/alpine-seedbox.pp
-$ semodule -i /tmp/alpine-seedbox.pp
+# semodule -i /tmp/alpine-seedbox.pp
 ```
 
 In addition to installing the module volumes must be mounted using the `:Z`
@@ -99,7 +99,7 @@ To run the container interactively execute the following command. Modify the
 host paths if necessary.
 
 ```shell
-$ docker run -it --rm --cap-add=NET_ADMIN --device=/dev/net/tun \
+# docker run -it --rm --cap-add=NET_ADMIN --device=/dev/net/tun \
 	--dns=8.8.8.8 --dns=8.8.4.4 --publish 9091:9091 \
 	--volume ~/.config/flexget:/mnt/flexget:Z \
 	--volume ~/.config/openvpn/config.ovpn:/mnt/openvpn/config.ovpn:ro,Z \
