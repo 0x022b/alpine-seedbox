@@ -101,11 +101,11 @@ host paths if necessary.
 ```
 # docker run -it --rm --cap-add=NET_ADMIN --device=/dev/net/tun \
 	--dns=8.8.8.8 --dns=8.8.4.4 --publish 9091:9091 \
-	--volume ~/.config/flexget:/mnt/flexget:Z \
-	--volume ~/.config/openvpn/config.ovpn:/mnt/openvpn/config.ovpn:ro,Z \
-	--volume ~/.config/openvpn/passwd:/mnt/openvpn/passwd:ro,Z \
-	--volume ~/.config/transmission-daemon:/mnt/transmission:Z \
-	--volume ~/Downloads/Torrents:/mnt/torrent:Z \
+	--volume /path/to/.config/flexget:/mnt/flexget:Z \
+	--volume /path/to/.config/openvpn/config.ovpn:/mnt/openvpn/config.ovpn:ro,Z \
+	--volume /path/to/.config/openvpn/passwd:/mnt/openvpn/passwd:ro,Z \
+	--volume /path/to/.config/transmission-daemon:/mnt/transmission:Z \
+	--volume /path/to/Downloads/Torrents:/mnt/torrent:Z \
 	alpine-seedbox:latest
 ```
 
