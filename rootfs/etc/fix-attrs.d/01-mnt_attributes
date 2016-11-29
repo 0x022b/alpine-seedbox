@@ -1,3 +1,0 @@
-/mnt/flexget true flexget:flexget 0644 0755
-/mnt/torrent true transmission:transmission 0644 0755
-/mnt/transmission true transmission:transmission 0644 0755

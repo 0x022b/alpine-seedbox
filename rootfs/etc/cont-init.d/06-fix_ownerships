@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+chown -R flexget:flexget /var/log/flexget
+chown -R openvpn:openvpn /var/log/openvpn
+chown -R transmission:transmission /var/log/transmission
