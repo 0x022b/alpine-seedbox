@@ -3,15 +3,14 @@ module alpine-seedbox 1.0;
 
 require {
 	type config_home_t;
-	type svirt_lxc_net_t;
-	type user_home_t;
-	class dir { read setattr };
-	class file { open read setattr };
+	type container_t;
+	type kernel_t;
+	class file { open read };
+	class system module_request;
 	class tun_socket create;
 }
 
-#============= svirt_lxc_net_t ==============
-allow svirt_lxc_net_t config_home_t:dir { read setattr };
-allow svirt_lxc_net_t config_home_t:file { open read setattr };
-allow svirt_lxc_net_t self:tun_socket create;
-allow svirt_lxc_net_t user_home_t:dir setattr;
+#============= container_t ==============
+allow container_t config_home_t:file { open read };
+allow container_t kernel_t:system module_request;
+allow container_t self:tun_socket create;
