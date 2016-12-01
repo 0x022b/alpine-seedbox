@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
-chmod -R u+rwX,go+rX,go-w /var/log/flexget
-chmod -R u+rwX,go+rX,go-w /var/log/openvpn
-chmod -R u+rwX,go+rX,go-w /var/log/transmission
+chmod -R a=r,a+X,u+w /var/log/flexget
+chmod -R a=r,a+X,u+w /var/log/openvpn
+chmod -R a=r,a+X,u+w /var/log/transmission
