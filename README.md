@@ -19,9 +19,9 @@ that [WikiLeaks][dns] has compiled.
 
 ### Transmission
 
-Transmission doesn't require any special configuration. For more information on
-how to configure Transmission's advanced features see the official documentation
-at the [website][transmission].
+Transmission doesn't require any special configuration. For information on how
+to configure Transmission's advanced features see the official documentation at
+the [website][transmission].
 
 ### FlexGet
 
