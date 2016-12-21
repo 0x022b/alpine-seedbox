@@ -96,7 +96,7 @@ label.
 ## Usage
 
 To run the container interactively execute the following command. Modify the
-host paths if necessary.
+parameters to fit your environment.
 
 ```
 # docker run -it --rm --cap-add=NET_ADMIN --device=/dev/net/tun \
