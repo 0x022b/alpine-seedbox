@@ -109,6 +109,44 @@ parameters to fit your environment.
 	scoobadog/alpine-seedbox:latest
 ```
 
+### systemd service
+
+A reliable way to start the container at boot time and restart it, if something goes wrong and the container shuts down, is to use systemd to manage the
+container. Use the following code snippet as a template, modify the parameters
+to fit your environment and save it as
+`/usr/lib/systemd/system/alpine-seedbox.service`.
+
+```
+[Unit]
+Description=alpine-seedbox
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run \
+	--cap-add=NET_ADMIN --device=/dev/net/tun \
+	--dns=8.8.8.8 --dns=8.8.4.4 --publish 9091:9091 \
+	--volume /home/user/.config/flexget:/mnt/flexget:Z \
+	--volume /home/user/.config/openvpn/config.ovpn:/mnt/openvpn/config.ovpn:ro,Z \
+	--volume /home/user/.config/openvpn/passwd:/mnt/openvpn/passwd:ro,Z \
+	--volume /home/user/.config/transmission-daemon:/mnt/transmission:Z \
+	--volume /home/user/Downloads/Torrents:/mnt/torrent:Z \
+	--name seedbox scoobadog/alpine-seedbox:latest
+ExecStop=/usr/bin/docker stop -t 10 seedbox
+ExecStopPost=/usr/bin/docker rm -f seedbox
+
+[Install]
+WantedBy=multi-user.target
+```
+
+To enable and start the service run the following commands.
+
+```
+# systemctl enable alpine-seedbox
+# systemctl start alpine-seedbox
+```
+
 ## License
 
 alpine-seedbox is licensed under the MIT License.
