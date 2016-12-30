@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
-chown -R flexget:flexget /var/log/flexget
-chown -R openvpn:openvpn /var/log/openvpn
-chown -R transmission:transmission /mnt/torrent
-chown -R transmission:transmission /var/log/transmission
+chown -R flexget:flexget \
+	/mnt/flexget \
+	/var/log/flexget
+chown -R openvpn:openvpn \
+	/mnt/openvpn \
+	/var/log/openvpn
+chown -R transmission:transmission \
+	/mnt/torrent \
+	/mnt/transmission \
+	/var/log/transmission
