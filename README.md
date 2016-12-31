@@ -25,13 +25,16 @@ the [website][transmission].
 
 ### FlexGet
 
-FlexGet is used to automate content processing tasks. The following option must
-be set in the FlexGet's `config.yml` for it to be able to communicate with
-Transmission. For more information on how to configure FlexGet see the official
-documentation at the [website][flexget].
+FlexGet is a tool used to automate content processing tasks. The following
+snippet can be used as a simple starting point for FlexGet's `config.yml` file.
+For information on how to configure FlexGet's more advanced features see the official documentation at the [website][flexget].
 
 ```yaml
-transmission: yes
+tasks:
+  linux:
+    rss: http://linuxtracker.org/rss.php
+    download: /mnt/torrent/download
+    transmission: yes
 ```
 
 ## Mount points
