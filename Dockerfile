@@ -1,4 +1,4 @@
-FROM scoobadog/alpine-s6:3.4
+FROM scoobadog/alpine-s6:3.5
 MAINTAINER Janne K <0x022b@gmail.com>
 
 RUN \
@@ -10,7 +10,7 @@ apk --update-cache --upgrade add \
 	iptables \
 	ip6tables \
 	openvpn \
-	py-pip \
+	py2-pip \
 	transmission-daemon && \
 pip install --no-cache-dir --upgrade pip flexget transmissionrpc && \
 mkdir -p /var/log/flexget && chown flexget:flexget /var/log/flexget && \
