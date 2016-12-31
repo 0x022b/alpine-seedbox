@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
-chmod -R a=r,a+X,u+w /var/log/flexget
-chmod -R a=r,a+X,u+w /var/log/openvpn
-chmod -R a=r,a+X,u+w /var/log/transmission
+chmod -R a=r,a+X,u+w \
+	/mnt/flexget \
+	/mnt/openvpn \
+	/mnt/torrent \
+	/mnt/transmission \
+	/var/log/flexget \
+	/var/log/openvpn \
+	/var/log/transmission
