@@ -51,6 +51,7 @@ mounted from the host.
 ```
 /mnt/
 	flexget/
+		config.yml
 	openvpn/
 		config.ovpn
 		passwd
@@ -105,8 +106,7 @@ parameters to fit your environment.
 # docker run -it --rm --cap-add=NET_ADMIN --device=/dev/net/tun \
 	--dns=8.8.8.8 --dns=8.8.4.4 --publish 9091:9091 \
 	--volume /home/user/.config/flexget:/mnt/flexget:Z \
-	--volume /home/user/.config/openvpn/config.ovpn:/mnt/openvpn/config.ovpn:ro,Z \
-	--volume /home/user/.config/openvpn/passwd:/mnt/openvpn/passwd:ro,Z \
+	--volume /home/user/.config/openvpn:/mnt/openvpn:Z \
 	--volume /home/user/.config/transmission-daemon:/mnt/transmission:Z \
 	--volume /home/user/Downloads/Torrents:/mnt/torrent:Z \
 	scoobadog/alpine-seedbox:latest
@@ -131,8 +131,7 @@ ExecStart=/usr/bin/docker run \
 	--cap-add=NET_ADMIN --device=/dev/net/tun \
 	--dns=8.8.8.8 --dns=8.8.4.4 --publish 9091:9091 \
 	--volume /home/user/.config/flexget:/mnt/flexget:Z \
-	--volume /home/user/.config/openvpn/config.ovpn:/mnt/openvpn/config.ovpn:ro,Z \
-	--volume /home/user/.config/openvpn/passwd:/mnt/openvpn/passwd:ro,Z \
+	--volume /home/user/.config/openvpn:/mnt/openvpn:Z \
 	--volume /home/user/.config/transmission-daemon:/mnt/transmission:Z \
 	--volume /home/user/Downloads/Torrents:/mnt/torrent:Z \
 	--name seedbox scoobadog/alpine-seedbox:latest
