@@ -1,3 +1,7 @@
+[![Latest Tag](https://img.shields.io/github/tag/scoobadog/alpine-seedbox.svg)](https://hub.docker.com/r/scoobadog/alpine-seedbox/tags/)
+[![Docker Build](https://img.shields.io/docker/automated/scoobadog/alpine-seedbox.svg)](https://hub.docker.com/r/scoobadog/alpine-seedbox/builds/)
+![Docker Pulls](https://img.shields.io/docker/pulls/scoobadog/alpine-seedbox.svg)
+
 # [alpine-seedbox][seedbox]
 
 A minimal [Alpine Linux][alpine] based [Docker][docker] container, that includes
