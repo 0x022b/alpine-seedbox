@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
-CONFIG=/mnt/openvpn/config.ovpn
-PROTO=$(cat ${CONFIG} | grep -e 'proto ' | awk '{ print $2 }')
-REMOTE=$(cat ${CONFIG} | grep -e 'remote ')
-HOST=$(echo ${REMOTE} | awk '{ print $2 }')
-PORT=$(echo ${REMOTE} | awk '{ print $3 }')
-cat /etc/iptables/ipv4.rules | sed "s/{PROTO}/${PROTO}/g" |\
-	sed "s/{HOST}/${HOST}/g" | sed "s/{PORT}/${PORT}/g" | iptables-restore
+config=/mnt/openvpn/config.ovpn
+proto=$(awk '/proto / { print $2 }' "${config}")
+host=$(awk '/remote / { print $2 }' "${config}")
+port=$(awk '/remote / { print $3 }' "${config}")
+sed "s/{PROTO}/${proto}/g; s/{HOST}/${host}/g; s/{PORT}/${port}/g" \
+	/etc/iptables/ipv4.rules | iptables-restore

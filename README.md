@@ -1,5 +1,9 @@
 # [alpine-seedbox][seedbox]
 
+[![Latest Tag](https://img.shields.io/github/tag/scoobadog/alpine-seedbox.svg)](https://hub.docker.com/r/scoobadog/alpine-seedbox/tags/)
+[![Docker Build](https://img.shields.io/docker/automated/scoobadog/alpine-seedbox.svg)](https://hub.docker.com/r/scoobadog/alpine-seedbox/builds/)
+![Docker Pulls](https://img.shields.io/docker/pulls/scoobadog/alpine-seedbox.svg)
+
 A minimal [Alpine Linux][alpine] based [Docker][docker] container, that includes
 [Transmission][transmission], [OpenVPN][openvpn] and [FlexGet][flexget], which
 uses [s6-overlay][overlay] to manage the processes.
@@ -17,6 +21,15 @@ An alternative DNS server should be used to prevent DNS leaks. Use the DNS
 servers provided by the VPN provider or choose an alternative from the list
 that [WikiLeaks][dns] has compiled.
 
+### OpenVPN
+
+For OpenVPN two configuration files are required. VPN providers usually have
+already made configuration files that can be used as is as the `config.ovpn`
+file. The second file named `passwd` is used as a value for `auth-user-pass`
+parameter and it must contain username on the first line and password on the
+second line. For more information on how to configure OpenVPN see the official
+documentation at the [website][openvpn-doc].
+
 ### Transmission
 
 Transmission doesn't require any special configuration. For information on how
@@ -27,7 +40,8 @@ the [website][transmission].
 
 FlexGet is a tool used to automate content processing tasks. The following
 snippet can be used as a simple starting point for FlexGet's `config.yml` file.
-For information on how to configure FlexGet's more advanced features see the official documentation at the [website][flexget].
+For information on how to configure FlexGet's more advanced features see the
+official documentation at the [website][flexget].
 
 ```yaml
 tasks:
@@ -51,6 +65,7 @@ mounted from the host.
 ```
 /mnt/
 	flexget/
+		config.yml
 	openvpn/
 		config.ovpn
 		passwd
@@ -105,8 +120,7 @@ parameters to fit your environment.
 # docker run -it --rm --cap-add=NET_ADMIN --device=/dev/net/tun \
 	--dns=8.8.8.8 --dns=8.8.4.4 --publish 9091:9091 \
 	--volume /home/user/.config/flexget:/mnt/flexget:Z \
-	--volume /home/user/.config/openvpn/config.ovpn:/mnt/openvpn/config.ovpn:ro,Z \
-	--volume /home/user/.config/openvpn/passwd:/mnt/openvpn/passwd:ro,Z \
+	--volume /home/user/.config/openvpn:/mnt/openvpn:Z \
 	--volume /home/user/.config/transmission-daemon:/mnt/transmission:Z \
 	--volume /home/user/Downloads/Torrents:/mnt/torrent:Z \
 	scoobadog/alpine-seedbox:latest
@@ -131,8 +145,7 @@ ExecStart=/usr/bin/docker run \
 	--cap-add=NET_ADMIN --device=/dev/net/tun \
 	--dns=8.8.8.8 --dns=8.8.4.4 --publish 9091:9091 \
 	--volume /home/user/.config/flexget:/mnt/flexget:Z \
-	--volume /home/user/.config/openvpn/config.ovpn:/mnt/openvpn/config.ovpn:ro,Z \
-	--volume /home/user/.config/openvpn/passwd:/mnt/openvpn/passwd:ro,Z \
+	--volume /home/user/.config/openvpn:/mnt/openvpn:Z \
 	--volume /home/user/.config/transmission-daemon:/mnt/transmission:Z \
 	--volume /home/user/Downloads/Torrents:/mnt/torrent:Z \
 	--name seedbox scoobadog/alpine-seedbox:latest
@@ -159,6 +172,7 @@ alpine-seedbox is licensed under the MIT License.
 [docker]: https://www.docker.com/
 [flexget]: http://flexget.com/
 [openvpn]: https://openvpn.net/
+[openvpn-doc]: https://openvpn.net/index.php/open-source/documentation/howto.html
 [overlay]: https://github.com/just-containers/s6-overlay
 [transmission]: https://www.transmissionbt.com/
 [dns]: https://www.wikileaks.org/wiki/Alternative_DNS
