@@ -40,7 +40,8 @@ the [website][transmission].
 
 FlexGet is a tool used to automate content processing tasks. The following
 snippet can be used as a simple starting point for FlexGet's `config.yml` file.
-For information on how to configure FlexGet's more advanced features see the official documentation at the [website][flexget].
+For information on how to configure FlexGet's more advanced features see the
+official documentation at the [website][flexget].
 
 ```yaml
 tasks:
