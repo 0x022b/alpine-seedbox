@@ -21,6 +21,15 @@ An alternative DNS server should be used to prevent DNS leaks. Use the DNS
 servers provided by the VPN provider or choose an alternative from the list
 that [WikiLeaks][dns] has compiled.
 
+### OpenVPN
+
+For OpenVPN two configuration files are required. VPN providers usually have
+already made configuration files that can be used as is as the `config.ovpn`
+file. The second file named `passwd` is used as a value for `auth-user-pass`
+parameter and it must contain username on the first line and password on the
+second line. For more information on how to configure OpenVPN see the official
+documentation at the [website][openvpn-doc].
+
 ### Transmission
 
 Transmission doesn't require any special configuration. For information on how
@@ -162,6 +171,7 @@ alpine-seedbox is licensed under the MIT License.
 [docker]: https://www.docker.com/
 [flexget]: http://flexget.com/
 [openvpn]: https://openvpn.net/
+[openvpn-doc]: https://openvpn.net/index.php/open-source/documentation/howto.html
 [overlay]: https://github.com/just-containers/s6-overlay
 [transmission]: https://www.transmissionbt.com/
 [dns]: https://www.wikileaks.org/wiki/Alternative_DNS
