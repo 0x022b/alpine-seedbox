@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-chmod -R a=r,a+X,u+w \
-	/mnt/flexget \
-	/mnt/openvpn \
-	/mnt/torrent \
-	/mnt/transmission \
-	/var/log/flexget \
-	/var/log/openvpn \
-	/var/log/transmission
