@@ -4,7 +4,7 @@ MAINTAINER Janne K <0x022b@gmail.com>
 RUN \
 addgroup -S flexget && \
 adduser -s /sbin/nologin -h /var/lib/flexget -SD -G flexget flexget && \
-apk --update-cache --upgrade add \
+apk --no-cache add \
 	py2-pip \
 	transmission-daemon && \
 pip install --no-cache-dir --upgrade pip flexget transmissionrpc && \
