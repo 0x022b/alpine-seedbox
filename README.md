@@ -97,14 +97,15 @@ or a file as a single log file.
 
 ## SELinux
 
-To use this container on a host that has SELinux enabled use the provided
-`alpine-seedbox.te` policy module or create your own if it doesn't work. To
-compile and install the policy module run the following commands.
+To use this container on a host that has SELinux enabled use the
+`docker-openvpn.te` policy module from the base image which can be downloaded
+from [here][module] or create your own if it doesn't work. To compile and
+install the policy module run the following commands.
 
 ```
-$ checkmodule -M -m alpine-seedbox.te -o /tmp/alpine-seedbox.mod
-$ semodule_package -m /tmp/alpine-seedbox.mod -o /tmp/alpine-seedbox.pp
-# semodule -i /tmp/alpine-seedbox.pp
+$ checkmodule -M -m docker-openvpn.te -o /tmp/docker-openvpn.mod
+$ semodule_package -m /tmp/docker-openvpn.mod -o /tmp/docker-openvpn.pp
+# semodule -i /tmp/docker-openvpn.pp
 ```
 
 In addition to installing the module volumes must be mounted using the `:Z`
@@ -177,3 +178,4 @@ alpine-seedbox is licensed under the MIT License.
 [overlay]: https://github.com/just-containers/s6-overlay
 [transmission]: https://www.transmissionbt.com/
 [dns]: https://www.wikileaks.org/wiki/Alternative_DNS
+[module]: https://raw.githubusercontent.com/scoobadog/docker-openvpn/master/selinux/docker-openvpn.te
