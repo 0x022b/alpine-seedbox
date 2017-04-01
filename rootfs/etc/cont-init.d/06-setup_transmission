@@ -8,8 +8,8 @@ mkdir -p \
 chown -R transmission:transmission \
 	/mnt/torrent \
 	/mnt/transmission \
-	/var/log/transmission
+	/var/log/transmission || :
 chmod -R a=r,a+X,u+w \
 	/mnt/torrent \
 	/mnt/transmission \
-	/var/log/transmission
+	/var/log/transmission || :

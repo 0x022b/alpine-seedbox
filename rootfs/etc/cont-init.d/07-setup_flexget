@@ -3,7 +3,7 @@ mkdir -p \
 	/var/log/flexget
 chown -R flexget:flexget \
 	/mnt/flexget \
-	/var/log/flexget
+	/var/log/flexget || :
 chmod -R a=r,a+X,u+w \
 	/mnt/flexget \
-	/var/log/flexget
+	/var/log/flexget || :
