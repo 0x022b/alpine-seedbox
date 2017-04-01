@@ -6,6 +6,7 @@ redirfd -a 2 /var/log/transmission/stderr.log
 	--foreground
 	--allowed *.*.*.*
 	--port 9091
+	--no-portmap
 	--peerport 51413
 	--logfile /var/log/transmission/stdout.log
 	--config-dir /mnt/transmission
