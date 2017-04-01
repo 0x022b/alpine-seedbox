@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-ip6tables-restore < /etc/iptables/ipv6.rules

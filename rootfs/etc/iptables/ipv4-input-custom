@@ -1,0 +1,3 @@
+-A INPUT -i eth+ -p tcp -m tcp --dport 9091 -j ACCEPT
+-A INPUT -i tun+ -p tcp -m tcp --dport 51413 -j ACCEPT
+-A INPUT -i tun+ -p udp -m udp --dport 51413 -j ACCEPT

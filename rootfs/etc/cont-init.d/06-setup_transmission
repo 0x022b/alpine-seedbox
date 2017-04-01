@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+mkdir -p \
+	/mnt/torrent/.tmp \
+	/mnt/torrent/download \
+	/mnt/torrent/watch \
+	/mnt/transmission \
+	/var/log/transmission
+chown -R transmission:transmission \
+	/mnt/torrent \
+	/mnt/transmission \
+	/var/log/transmission || :
+chmod -R a=r,a+X,u+w \
+	/mnt/torrent \
+	/mnt/transmission \
+	/var/log/transmission || :

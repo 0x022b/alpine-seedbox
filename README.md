@@ -128,7 +128,8 @@ parameters to fit your environment.
 
 ### systemd service
 
-A reliable way to start the container at boot time and restart it, if something goes wrong and the container shuts down, is to use systemd to manage the
+A reliable way to start the container at boot time and restart it, if something
+goes wrong and the container shuts down, is to use systemd to manage the
 container. Use the following code snippet as a template, modify the parameters
 to fit your environment and save it as
 `/usr/lib/systemd/system/alpine-seedbox.service`.

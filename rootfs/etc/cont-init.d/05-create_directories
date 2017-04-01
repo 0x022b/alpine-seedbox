@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-mkdir -p \
-	/mnt/torrent/.tmp \
-	/mnt/torrent/download \
-	/mnt/torrent/watch \
-	/mnt/transmission \
-	/var/log/flexget \
-	/var/log/openvpn \
-	/var/log/transmission

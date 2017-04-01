@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-config=/mnt/openvpn/config.ovpn
-proto=$(awk '/proto / { print $2 }' "${config}")
-host=$(awk '/remote / { print $2 }' "${config}")
-port=$(awk '/remote / { print $3 }' "${config}")
-sed "s/{PROTO}/${proto}/g; s/{HOST}/${host}/g; s/{PORT}/${port}/g" \
-	/etc/iptables/ipv4.rules | iptables-restore
