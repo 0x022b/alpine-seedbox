@@ -68,7 +68,7 @@ mounted from the host.
 		config.yml
 	openvpn/
 		config.ovpn
-		passwd
+		login.conf
 	torrent/
 		.tmp/
 		download/
