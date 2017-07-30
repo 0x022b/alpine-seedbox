@@ -1,4 +1,4 @@
-FROM scoobadog/openvpn:1.0
+FROM scoobadog/s6-openvpn:1.0
 MAINTAINER Janne K <0x022b@gmail.com>
 
 RUN \
